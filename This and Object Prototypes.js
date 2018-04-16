@@ -56,5 +56,54 @@ console.log(myObject[idx]);    // this console.log defines the key value pair of
 
 
 
-//Chapter 4
 
+
+//Chapter 4
+class CoolGuy {                                        //this pseudo code Constructor is a class instance
+    specialTrick = nothing
+
+    CoolGuy(trick) {
+        specialTrick = trick
+    }
+
+    showOff() {
+        output("Here's my trick: ", specialTrick)
+    }
+}
+
+
+
+//Chapter 5
+
+var myObject = {   //instantiation of myObject
+    a:2
+};
+myObject.a;  // this outputs 2
+
+var anotherObject = {      //instantiation of anotherObject  with a key/value pair of a:3
+    a:3
+};
+
+var myObject = Object.create(anotherObject);  //myObject is now prototype linked to anotherObject
+
+myObject.a;                       // myObject.a now has the value of anotherObject which is 3 in this case.
+
+
+//Chapter 6
+
+var Task = {                                //Task is just an object!
+    setID: function(ID) {this.id = ID},
+    outputID: function() {console.log(this.id); }
+};
+
+var XYZ = Object.create(Task);            //this makes XYZ a delegate to Task
+
+XYZ.prepareTask = function(ID,Label) {        //this a prototype of XYZ
+    this.setID(ID);
+    this.label = Label;
+};
+
+XYZ.outputTaskDetails = function() {           // this is a prototype of XYZ
+    this.outputID();
+    console.log(this.label);
+};
